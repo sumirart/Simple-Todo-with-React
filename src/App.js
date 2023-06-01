@@ -20,13 +20,13 @@ function App() {
       isCompleted: false,
     },
   ]);
-  //   const [todo, setTodo] = useState("");
+  // const [todo, setTodo] = useState(""); can have another state to control the text input
 
   function handleAddTodo(e) {
     e.preventDefault();
 
     const newTodo = {
-      id: todos.length, // 0
+      id: todos.length, // start with empty array will be 0
       todo: e.target.elements[0].value,
       isCompleted: false,
     };
@@ -46,13 +46,15 @@ function App() {
     setTodos(newTodos);
   }
 
-  //   function handleChangeTodoInput(e) {
-  //     if (e === "e") {
-  //       return;
-  //     }
-
-  //     setTodo(e.target.value);
+  // if we want to control the input
+  // function handleChangeTodoInput(e) {
+  //   console.log(e.target.value);
+  //   if (e.target.value === "e") {
+  //     return;
   //   }
+
+  //   setTodo(e.target.value);
+  // }
 
   return (
     <div className="App">
@@ -68,8 +70,9 @@ function App() {
               name="todo"
               type="text"
               required
-              //   value={todo}
-              //   onChange={handleChangeTodoInput}
+              // if we want to control input (controlled input)
+              // value={todo}
+              // onChange={handleChangeTodoInput}
               placeholder="What do you want to do.."
               className="block w-full rounded-md border-0 px-4 py-4 text-lg text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-blue-100 sm:leading-6"
             />
@@ -81,7 +84,6 @@ function App() {
           </div>
         </form>
       </div>
-      {/* <hr className="my-8" /> */}
       <TodosWrapper
         todos={todos}
         handleToggle={handleToggle}
