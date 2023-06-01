@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import Input from "./components/Input";
 import TodosWrapper from "./components/TodosWrapper";
+import randomize from "./utils/randomize";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -26,8 +27,9 @@ function App() {
   function handleAddTodo(e) {
     e.preventDefault();
 
+    const id = randomize();
     const newTodo = {
-      id: todos.length, // start with empty array will be 0
+      id,
       todo: e.target.elements[0].value,
       isCompleted: false,
     };
