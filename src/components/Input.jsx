@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Input({ handleAddTodo }) {
+export default function Input({ handleAddTodo, handleChangeTodoInput, todo }) {
   return (
     <div className="input mb-8">
       <form className="" onSubmit={handleAddTodo}>
@@ -11,8 +11,8 @@ export default function Input({ handleAddTodo }) {
             type="text"
             required
             // if we want to control input (controlled input)
-            // value={todo}
-            // onChange={handleChangeTodoInput}
+            value={todo}
+            onChange={handleChangeTodoInput}
             placeholder="What do you want to do.."
             className="block w-full rounded-md border-0 px-4 py-4 text-lg text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-blue-100 sm:leading-6"
           />
