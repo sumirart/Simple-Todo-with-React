@@ -11,6 +11,7 @@ export default function TodosWrapper({
   todos,
   handleToggle,
   handleDeleteTodo,
+  handleEditedTodo,
 }) {
   return (
     <section className="todos">
@@ -21,6 +22,7 @@ export default function TodosWrapper({
             item={item}
             handleToggle={handleToggle}
             handleDeleteTodo={handleDeleteTodo}
+            handleEditedTodo={handleEditedTodo}
           />
         ))}
       </ul>

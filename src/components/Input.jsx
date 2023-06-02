@@ -1,9 +1,19 @@
 import React from "react";
 
-export default function Input({ handleAddTodo, handleChangeTodoInput, todo }) {
+export default function Input({
+  handleAddTodo,
+  handleChangeTodoInput,
+  todo,
+  editedTodo,
+  handleSaveEditTodo,
+  handleCancelEditTodo,
+}) {
   return (
     <div className="input mb-8">
-      <form className="" onSubmit={handleAddTodo}>
+      <form
+        className=""
+        onSubmit={editedTodo ? handleSaveEditTodo : handleAddTodo}
+      >
         <div className="mt-2 flex">
           <input
             id="todo"
@@ -18,9 +28,17 @@ export default function Input({ handleAddTodo, handleChangeTodoInput, todo }) {
           />
           <input
             type="submit"
-            value="Add"
+            value={editedTodo ? "Save" : "Add"}
             className="ml-2 cursor-pointer rounded-md bg-blue-600 px-8 py-4 text-lg text-white hover:bg-blue-500"
           />
+          {editedTodo && (
+            <button
+              onClick={handleCancelEditTodo}
+              className="ml-2 cursor-pointer rounded-md bg-red-600 px-8 py-4 text-lg text-white hover:bg-red-500"
+            >
+              Cancel
+            </button>
+          )}
         </div>
       </form>
     </div>

@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { FaPen, FaTrash } from "react-icons/fa";
 
-export default function Todo({ item, handleToggle, handleDeleteTodo }) {
+export default function Todo({
+  item,
+  handleToggle,
+  handleDeleteTodo,
+  handleEditedTodo,
+}) {
   const [isHovering, setIsHovering] = useState(false);
   function handleMouseOver() {
     setIsHovering(true);
@@ -9,10 +14,6 @@ export default function Todo({ item, handleToggle, handleDeleteTodo }) {
 
   function handleMouseOut() {
     setIsHovering(false);
-  }
-
-  function al(id) {
-    alert(id);
   }
 
   return (
@@ -29,7 +30,7 @@ export default function Todo({ item, handleToggle, handleDeleteTodo }) {
         {item.todo}
       </span>
       <span
-        onClick={() => alert(item.id)}
+        onClick={() => handleEditedTodo(item)}
         className={`${isHovering ? "block" : "hidden"} p-2`}
       >
         <FaPen />
