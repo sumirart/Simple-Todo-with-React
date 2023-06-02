@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import Input from "./components/Input";
 import TodosWrapper from "./components/TodosWrapper";
-import randomize from "./utils/randomize";
 
 const ip = `${process.env.REACT_APP_BACKEND_IP}:${process.env.REACT_APP_BACKEND_PORT}/`;
 
@@ -15,7 +14,6 @@ function App() {
     fetch(`${ip}todos`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         setTodos(result);
       })
       .catch((err) => {
@@ -91,16 +89,40 @@ function App() {
   function handleSaveEditTodo(e) {
     e.preventDefault();
 
-    const newTodos = todos.map((item) => {
-      if (item.id === editedTodo.id) {
-        return { ...item, todo };
-      }
-      return item;
-    });
-    setTodos(newTodos);
+    // const newTodos = todos.map((item) => {
+    //   if (item.id === editedTodo.id) {
+    //     return { ...item, todo };
+    //   }
+    //   return item;
+    // });
+    // setTodos(newTodos);
 
-    setTodo("");
-    setEditedTodo(undefined);
+    fetch(`${ip}todos/${editedTodo.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...editedTodo, todo }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        // setTodos([...todos, result]);
+        // setTodo("");
+        return todos.map((item) => {
+          if (item.id === result.id) {
+            return result;
+          }
+          return item;
+        });
+      })
+      .then((result) => {
+        setTodos(result);
+        setTodo("");
+        setEditedTodo(undefined);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
