@@ -65,8 +65,17 @@ function App() {
   }
 
   function handleDeleteTodo(id) {
-    const newTodos = todos.filter((item) => item.id !== id);
-    setTodos(newTodos);
+    fetch(`${ip}todos/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        return todos.filter((item) => item.id !== id);
+      })
+      .then((result) => setTodos(result))
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleEditedTodo(todo) {

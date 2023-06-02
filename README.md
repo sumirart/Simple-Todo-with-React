@@ -4,7 +4,8 @@
 
 1. Clone this repository
 2. `npm install` or `pnpm install`
-3. Start the app using `npm start`
+3. Start `json-server` with `npm run server`
+4. Start the app using `npm start`
 
 ### Features:
 
