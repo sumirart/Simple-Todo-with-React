@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Input from "./components/Input";
 import TodosWrapper from "./components/TodosWrapper";
 import randomize from "./utils/randomize";
 
+const ip = `${process.env.REACT_APP_BACKEND_IP}:${process.env.REACT_APP_BACKEND_PORT}/`;
+
 function App() {
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState("");
   const [editedTodo, setEditedTodo] = useState(undefined);
+
+  useEffect(() => {
+    fetch(`${ip}todos`)
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setTodos(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   // if we want to control the input
   function handleChangeTodoInput(e) {
@@ -28,15 +42,26 @@ function App() {
   function handleAddTodo(e) {
     e.preventDefault();
 
-    const id = randomize();
     const newTodo = {
-      id,
       todo,
       isCompleted: false,
     };
 
-    setTodos([...todos, newTodo]);
-    setTodo("");
+    fetch(`${ip}todos`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTodo),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        setTodos([...todos, result]);
+        setTodo("");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleDeleteTodo(id) {
