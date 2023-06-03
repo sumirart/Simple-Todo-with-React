@@ -10,10 +10,7 @@ export default function Input({
 }) {
   return (
     <div className="input mb-8">
-      <form
-        className=""
-        onSubmit={editedTodo ? handleSaveEditTodo : handleAddTodo}
-      >
+      <form onSubmit={editedTodo ? handleSaveEditTodo : handleAddTodo}>
         <div className="mt-2 flex">
           <input
             id="todo"
