@@ -26,15 +26,38 @@ function App() {
     setTodo(e.target.value);
   }
 
-  function handleToggle(id) {
-    const newTodos = todos.map((item) => {
-      if (item.id === id) {
-        return { ...item, isCompleted: !item.isCompleted };
-      }
-      return item;
-    });
+  function handleToggle(id, isCompleted) {
+    fetch(`${ip}todos/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ isCompleted: !isCompleted }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        return todos.map((item) => {
+          if (item.id === result.id) {
+            return result;
+          }
+          return item;
+        });
+      })
+      .then((result) => {
+        setTodos(result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-    setTodos(newTodos);
+    // const newTodos = todos.map((item) => {
+    //   if (item.id === id) {
+    //     return { ...item, isCompleted: !item.isCompleted };
+    //   }
+    //   return item;
+    // });
+
+    // setTodos(newTodos);
   }
 
   function handleAddTodo(e) {

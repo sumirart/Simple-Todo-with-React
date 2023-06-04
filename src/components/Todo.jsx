@@ -24,7 +24,7 @@ export default function Todo({
       onMouseOut={handleMouseOut}
     >
       <span
-        onClick={() => handleToggle(item.id)}
+        onClick={() => handleToggle(item.id, item.isCompleted)}
         className={`flex-1 py-5 ${item.isCompleted && "line-through"}`}
       >
         {item.todo}
