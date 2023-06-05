@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Input from "../components/Input";
+import Title from "../components/Title";
 import TodosWrapper from "../components/TodosWrapper";
 
 const ip = `${process.env.REACT_APP_BACKEND_IP}:${process.env.REACT_APP_BACKEND_PORT}/`;
@@ -131,7 +132,7 @@ function Todo() {
 
   return (
     <>
-      <h1 className="mb-8 text-center text-3xl font-bold">Simple Todo</h1>
+      <Title>Todo List</Title>
       <Input
         handleAddTodo={handleAddTodo}
         handleChangeTodoInput={handleChangeTodoInput}

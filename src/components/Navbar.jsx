@@ -1,6 +1,12 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 
 export default function Navbar() {
+  const token = localStorage.getItem("token");
+
+  function handleLogout() {
+    localStorage.removeItem("token");
+  }
+
   return (
     <>
       <header className="mb-12">
@@ -35,15 +41,39 @@ export default function Navbar() {
             </li>
             <li>
               <NavLink
-                to="register"
+                to="todos"
                 className={({ isActive }) =>
                   (isActive ? "text-gray-600 underline" : "") +
                   " hover:text-gray-400"
                 }
               >
-                Register
+                Todo List
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="profile"
+                className={({ isActive }) =>
+                  (isActive ? "text-gray-600 underline" : "") +
+                  " hover:text-gray-400"
+                }
+              >
+                Profile
+              </NavLink>
+            </li>
+            {token && (
+              <li>
+                <NavLink
+                  onClick={handleLogout}
+                  className={({ isActive }) =>
+                    (isActive ? "text-gray-600 underline" : "") +
+                    " hover:text-gray-400"
+                  }
+                >
+                  Logout
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
       </header>

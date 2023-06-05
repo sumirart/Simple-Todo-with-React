@@ -2,9 +2,12 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
+import ProtectedPage from "./pages/ProtectedPage";
+
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
-import Register from "./pages/Register";
+import Profile from "./pages/Profile";
 import Todo from "./pages/Todo";
 
 export default function App() {
@@ -12,9 +15,12 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Navbar />}>
-          <Route path="/" element={<Todo />} />
+          <Route element={<ProtectedPage />}>
+            <Route path="/todos" element={<Todo />} />
+            <Route path="/profile" element={<Profile />} />
+          </Route>
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
