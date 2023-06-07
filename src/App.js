@@ -10,20 +10,24 @@ import NotFound from "./pages/NotFound";
 import Profile from "./pages/Profile";
 import Todo from "./pages/Todo";
 
+import AuthProvider from "./context/AuthProvider";
+
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Navbar />}>
-          <Route element={<ProtectedPage />}>
-            <Route path="/todos" element={<Todo />} />
-            <Route path="/profile" element={<Profile />} />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Navbar />}>
+            <Route element={<ProtectedPage />}>
+              <Route path="/todos" element={<Todo />} />
+              <Route path="/profile" element={<Profile />} />
+            </Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
           </Route>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
