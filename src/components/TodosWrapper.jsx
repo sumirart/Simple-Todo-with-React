@@ -10,8 +10,9 @@ import Todo from "./Todo";
 export default function TodosWrapper({
   todos,
   handleToggle,
-  handleDeleteTodo,
-  handleEditedTodo,
+  handleDelete,
+  handleEdited,
+  isLoadingToggleDelete,
 }) {
   return (
     <section className="todos">
@@ -21,8 +22,9 @@ export default function TodosWrapper({
             key={item.id}
             item={item}
             handleToggle={handleToggle}
-            handleDeleteTodo={handleDeleteTodo}
-            handleEditedTodo={handleEditedTodo}
+            handleDelete={handleDelete}
+            handleEdited={handleEdited}
+            isLoadingToggleDelete={isLoadingToggleDelete}
           />
         ))}
       </ul>

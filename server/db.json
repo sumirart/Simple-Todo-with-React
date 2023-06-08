@@ -1,94 +1,24 @@
 {
   "todos": [
     {
-      "todo": "kawokaokwokwao",
-      "isCompleted": true,
-      "id": "A5ca3tO"
-    },
-    {
-      "todo": "faf",
+      "todo": "go to market",
       "isCompleted": false,
-      "id": "uJueovb"
+      "id": "lDHQjdZ"
     },
     {
-      "todo": "dsa ",
+      "todo": "go to movie",
       "isCompleted": false,
-      "id": "H3f4csQ"
+      "id": "vY87zR5"
     },
     {
-      "todo": "sf dsa",
-      "isCompleted": true,
-      "id": "KtuC6_8"
-    },
-    {
-      "todo": "s",
+      "todo": "play skyrim",
       "isCompleted": false,
-      "id": "DCcyRD5"
+      "id": "EGSg9ie"
     },
     {
-      "todo": " ds f",
+      "todo": "test",
       "isCompleted": false,
-      "id": "Y2lwyLZ"
-    },
-    {
-      "todo": "ds ds",
-      "isCompleted": false,
-      "id": "mBLW_2v"
-    },
-    {
-      "todo": " fas",
-      "isCompleted": false,
-      "id": "VSSNgc4"
-    },
-    {
-      "todo": "f",
-      "isCompleted": false,
-      "id": "9WehRq9"
-    },
-    {
-      "todo": "akldjsakdjas",
-      "isCompleted": false,
-      "id": "q64oHfZ"
-    },
-    {
-      "todo": "sd",
-      "isCompleted": false,
-      "id": "CDcJ__u"
-    },
-    {
-      "todo": "a ",
-      "isCompleted": false,
-      "id": "d2tYcAj"
-    },
-    {
-      "todo": "dsf",
-      "isCompleted": false,
-      "id": "Z3Cb8Oz"
-    },
-    {
-      "todo": "dfds",
-      "isCompleted": false,
-      "id": "BcCylFo"
-    },
-    {
-      "todo": "f",
-      "isCompleted": false,
-      "id": "nyw-hGL"
-    },
-    {
-      "todo": "df",
-      "isCompleted": false,
-      "id": "O7jX75d"
-    },
-    {
-      "todo": "df",
-      "isCompleted": false,
-      "id": "bJfzbCU"
-    },
-    {
-      "todo": "dsfd",
-      "isCompleted": false,
-      "id": "cLrRmNP"
+      "id": "LbU7eSY"
     }
   ]
 }

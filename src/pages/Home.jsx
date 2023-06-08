@@ -7,7 +7,8 @@ export default function Home() {
       <Title>Welcome to my website!</Title>
       <div className="relative flex h-0 w-full justify-center pb-[100%]">
         <iframe
-          src="https://giphy.com/embed/8vQSQ3cNXuDGo"
+          title="Cat welcoming"
+          src="https://giphy.com/embed/f9RuFaYaZO9OZ3qLjZ"
           width="480"
           height="480"
           className="absolute"

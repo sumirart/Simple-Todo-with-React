@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { FaPen, FaTrash } from "react-icons/fa";
+import { FaPen, FaTrash, FaSpinner } from "react-icons/fa";
 
 export default function Todo({
   item,
   handleToggle,
-  handleDeleteTodo,
-  handleEditedTodo,
+  handleDelete,
+  handleEdited,
+  isLoadingToggleDelete,
 }) {
   const [isHovering, setIsHovering] = useState(false);
   function handleMouseOver() {
@@ -16,6 +17,18 @@ export default function Todo({
     setIsHovering(false);
   }
 
+  function toggleTodo(id, isCompleted) {
+    if (isLoadingToggleDelete) return;
+
+    handleToggle(id, isCompleted);
+  }
+
+  function deleteTodo(id) {
+    if (isLoadingToggleDelete) return;
+
+    handleDelete(id);
+  }
+
   return (
     <li
       // onClick={handleToggle(item.id)} cannot do this
@@ -24,19 +37,26 @@ export default function Todo({
       onMouseOut={handleMouseOut}
     >
       <span
-        onClick={() => handleToggle(item.id, item.isCompleted)}
+        onClick={() => toggleTodo(item.id, item.isCompleted)}
         className={`flex-1 py-5 ${item.isCompleted && "line-through"}`}
       >
         {item.todo}
       </span>
       <span
-        onClick={() => handleEditedTodo(item)}
+        onClick={() => handleEdited(item)}
+        className={`${isHovering ? "block" : "hidden"} p-2`}
+      >
+        {isLoadingToggleDelete && <FaSpinner className="animate-spin" />}
+      </span>
+
+      <span
+        onClick={() => handleEdited(item)}
         className={`${isHovering ? "block" : "hidden"} p-2`}
       >
         <FaPen />
       </span>
       <span
-        onClick={() => handleDeleteTodo(item.id)}
+        onClick={() => deleteTodo(item.id)}
         className={`${isHovering ? "block" : "hidden"} p-2`}
       >
         <FaTrash />
