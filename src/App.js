@@ -16,8 +16,8 @@ import "react-toastify/dist/ReactToastify.min.css";
 
 export default function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <Routes>
           <Route element={<Navbar />}>
             <Route element={<ProtectedPage />}>
@@ -41,7 +41,7 @@ export default function App() {
           pauseOnHover
           theme="light"
         />
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }

@@ -16,7 +16,7 @@ function Todo() {
   const [isLoadingCreateUpdate, setIsLoadingCreateUpdate] = useState(false);
   const [isLoadingToggleDelete, setIsLoadingToggleDelete] = useState(false);
   const [isFetchError, setIsFetchError] = useState(false);
-  const [errorFetchMessage, setErrorFetchMessage] = useState("");
+  const [errorFetchMessage, setErrorFetchMessage] = useState(""); // useReducer
 
   useEffect(() => {
     setIsLoading(true);

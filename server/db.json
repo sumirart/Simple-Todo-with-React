@@ -2,23 +2,28 @@
   "todos": [
     {
       "todo": "go to market",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": "lDHQjdZ"
     },
     {
-      "todo": "go to movie",
+      "todo": "go to movie wkwk",
       "isCompleted": false,
       "id": "vY87zR5"
-    },
-    {
-      "todo": "play skyrim",
-      "isCompleted": false,
-      "id": "EGSg9ie"
     },
     {
       "todo": "test",
       "isCompleted": false,
       "id": "LbU7eSY"
+    },
+    {
+      "todo": "asdfdasf",
+      "isCompleted": false,
+      "id": "e81410O"
+    },
+    {
+      "todo": "asdfsadfd",
+      "isCompleted": false,
+      "id": "Zx5LtQh"
     }
   ]
 }

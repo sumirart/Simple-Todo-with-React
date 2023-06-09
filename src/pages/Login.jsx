@@ -1,29 +1,26 @@
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 import Title from "../components/Title";
 import { useAuth } from "../context/AuthProvider";
 
 export default function Login() {
-  const navigate = useNavigate();
   const location = useLocation();
+  const auth = useAuth();
 
   let from = location.state?.from?.pathname ?? "/";
-  const auth = useAuth();
+  const token = auth.token;
 
   function handleSubmit(e) {
     e.preventDefault();
 
     // localStorage.setItem("token", "randomtokenwords123131231293812093821");
     auth.login("randomtokenwords123131231293812093821");
-
-    navigate(from, { replace: true });
   }
 
   // when logged in, redirect to home
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
   if (token) {
-    // navigate("/", { replace: true });
-    return <Navigate to="/" state={{ from: location }} replace />;
+    return <Navigate to={from ? from : "/"} replace />;
   }
 
   return (
