@@ -2,28 +2,18 @@
   "todos": [
     {
       "todo": "go to market",
-      "isCompleted": true,
+      "isCompleted": false,
       "id": "lDHQjdZ"
     },
     {
-      "todo": "go to movie wkwk",
+      "todo": "pergi ke alfamart",
       "isCompleted": false,
-      "id": "vY87zR5"
+      "id": "r83J6Ib"
     },
     {
-      "todo": "test",
+      "todo": "learn React Router",
       "isCompleted": false,
-      "id": "LbU7eSY"
-    },
-    {
-      "todo": "asdfdasf",
-      "isCompleted": false,
-      "id": "e81410O"
-    },
-    {
-      "todo": "asdfsadfd",
-      "isCompleted": false,
-      "id": "Zx5LtQh"
+      "id": "NCisKAf"
     }
   ]
 }
